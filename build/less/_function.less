@@ -1,0 +1,31 @@
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//float
+.float(@dirction: left) {
+  .process(@dirction) when (@dirction = left){
+    float: left;
+    *display: inline;
+  }
+  .process(@dirction) when (@dirction = right){
+    float: right;
+    *display: inline;
+  }
+  .process(@dirction) when (@dirction = none){
+    float: none;
+  }
+  .process(@dirction) when (default()){
+    float: left;
+    *display: inline;
+  }
+  .process(@dirction);
+}
